@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
 import { Divider } from './Divider';
+import validator from 'validator';
 
 const styles = StyleSheet.create({
     container: {
@@ -58,13 +59,13 @@ const MainComponent = () => {
                 <Text style={styles.textContent}>Sign Up</Text>
             </View>
             <View style={styles.Input} >
-                <TextInput style={styles.InputBox} textContentType='name' placeholder="Enter your name" />
+                <TextInput style={styles.InputBox} returnKeyType='next' onSubmitEditing={()=>{this.Enteryouremail.focus();}}  selectionColor={'red'} textContentType='name' placeholder="Enter your name" />
             
-                <TextInput style={styles.InputBox} textContentType='emailAddress' placeholder='Enter your email' />
+                <TextInput style={styles.InputBox}  returnKeyType='next' onSubmitEditing={()=>{this.Password.focus();}} ref={(input)=>{this.Enteryouremail = input}}selectionColor={'red'} textContentType='emailAddress' placeholder='Enter your email' />
            
-                <TextInput style={styles.InputBox} textContentType='password' placeholder='Password' />
+                <TextInput style={styles.InputBox} returnKeyType='next' onSubmitEditing={()=>{this.ConfirmPassword.focus();}}secureTextEntry={true} ref={(input)=>{this.Password = input}}  selectionColor={'red'} textContentType='password' placeholder='Password' />
           
-                <TextInput style={styles.InputBox}  textContentType='password' placeholder='Confirm Password' />
+                <TextInput style={styles.InputBox} selectionColor={'red'} ref={(input)=>{this.ConfirmPassword=input}} secureTextEntry={true} placeholder='Confirm Password' />
             </View>
             <View style={styles.button}>
                 <Button style={styles.buttonContent}  title="Sign Up" />
