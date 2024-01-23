@@ -11,59 +11,73 @@ const styles = StyleSheet.create({
         height: '70%',
         width: '80%',
         borderRadius: 20,
-        gap:20
-    },content:{
+        gap:15
+    },text:{
         display:'flex',
         flexDirection: 'column',
         gap:20,
-        justifyContent:'space-evenly',
-        alignItems:'center',
-        borderColor:'black',
-        borderWidth:1,
-        width:'100%',
-        padding:20,
-        marginTop:10
+        borderRadius: 10,
+        margin:15,
+        marginTop:20,
+        justifyContent:'center',
+        alignItems:'center'
+    },textContent:{
+        fontStyle:'normal',
+       fontSize:25,
     },
-    heading: {
-        display: 'flex',
+    Input: {
+        display:'flex',
         flexDirection: 'column',
-        // justifyContent:'flex-start',
-        alignItems: 'center',
-        paddingTop: 25,
-        fontSize: 20,
-        
+        gap:20,
+        borderRadius: 10,
     },
-    text:{
-        fontSize:18,
+    InputBox:{
+        // width:'100%',
+        backgroundColor:'#F6F9FB',
+        paddingVertical:10,
+        paddingHorizontal:50,
+        borderRadius: 10,
+        color:'black'
+
+    },button:{
+        width:'70%',
+        marginTop:15,
+    },
+    buttonContent:{
+        borderRadius:20,
+        fontSize:5,
+        backgroundColor:'#ffffff',
+        
     }
 });
 
 const MainComponent = () => {
     return (
         <View style={styles.container}>
-            <View >
-                <Text style={styles.heading}>Sign Up</Text>
+            <View style={styles.text} >
+                <Text style={styles.textContent}>Sign Up</Text>
             </View>
-            <View style={styles.content}>
-                <TextInput style={styles.text} placeholder="Enter your name" />
+            <View style={styles.Input} >
+                <TextInput style={styles.InputBox} textContentType='name' placeholder="Enter your name" />
             
-                <TextInput placeholder='Enter your email' />
+                <TextInput style={styles.InputBox} textContentType='emailAddress' placeholder='Enter your email' />
            
-                <TextInput placeholder='Password' />
+                <TextInput style={styles.InputBox} textContentType='password' placeholder='Password' />
           
-                <TextInput placeholder='Confirm Password' />
+                <TextInput style={styles.InputBox}  textContentType='password' placeholder='Confirm Password' />
             </View>
-            <View>
-                <Button title="Sign Up" />
+            <View style={styles.button}>
+                <Button style={styles.buttonContent}  title="Sign Up" />
             </View>
-            <View>
-                <Text>Already Have an Account ? Log In</Text>
+            <View style={{marginTop:5}}>
+                <Text style={{fontSize:12,width:"40%"}}>Already Have an Account ? Log In</Text>
+            </View>
+            <View style={{marginTop:0}}>
                 <Divider />
             </View>
             {/* Divider */}
-            <View>
+            <View style={styles.button}>
                 <Button title="Sign Up with Google" backgroundColor="#4285f4"  />
-
             </View>
 
         </View>
